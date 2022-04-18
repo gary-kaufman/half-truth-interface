@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="dierollbox">
       <h1 @click="roll" id="die">{{ rollResult }}</h1>
       <caption id="rollDescription">{{ rollDescription }}</caption>
   </div>
@@ -14,7 +14,7 @@ export default class DieRoll extends Vue {
 
     roll(): void{
         document.querySelector("#die")?.classList.add("roll");
-        this.rollDescription = "";
+        this.rollDescription = " ";
         setTimeout(() => {
         let result = Math.floor(Math.random() * 6) + 1;
         if (result == 1) {
@@ -58,6 +58,14 @@ export default class DieRoll extends Vue {
 </script>
 
 <style>
+#dierollbox {
+    display: block;
+    text-align: center;
+    margin: auto;    
+    height: 100px;
+    width: 800px;   
+}
+
 #die {
     display:block;
     text-align: center;
@@ -71,11 +79,6 @@ export default class DieRoll extends Vue {
 
 caption {
     display: block;
-    margin-top: 10px;
-}
-
-.hide {
-    display: none;
     margin-top: 10px;
 }
 
