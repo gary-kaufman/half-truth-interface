@@ -3,6 +3,7 @@
     <h1>Welcome to the Half Truth Game Interface!</h1>
     <DieRoll/>
     <AnswerOptions/>
+    <h1>Player Scores</h1>
   </div>
 </template>
 
