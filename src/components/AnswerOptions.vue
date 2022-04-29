@@ -1,14 +1,13 @@
 <template>
   <div class="root">
-    <h1 id="question">{{ question }}</h1>
-    <hr/>
+    <h1 id="question">{{ question }}</h1><br/>
     <div id="grid_container">
-        <div id="A" class="answer" v-bind:style='{"background-color" : (isACorrect? "#7ab342" : "white" )}' @click="isACorrectToggle()">{{ A }}</div>
-        <div id="B" class="answer" v-bind:style='{"background-color" : (isBCorrect? "#7ab342" : "white" )}' @click="isBCorrectToggle()">{{ B }}</div>
-        <div id="C" class="answer" v-bind:style='{"background-color" : (isCCorrect? "#7ab342" : "white" )}' @click="isCCorrectToggle()">{{ C }}</div>
-        <div id="F" class="answer" v-bind:style='{"background-color" : (isFCorrect? "#7ab342" : "white" )}' @click="isFCorrectToggle()">{{ F }}</div>
-        <div id="E" class="answer" v-bind:style='{"background-color" : (isECorrect? "#7ab342" : "white" )}' @click="isECorrectToggle()">{{ E }}</div>
-        <div id="D" class="answer" v-bind:style='{"background-color" : (isDCorrect? "#7ab342" : "white" )}' @click="isDCorrectToggle()">{{ D }}</div>
+        <div id="A" class="answer" style="background-clip: padding-box;" v-bind:style='{"background-color" : (isACorrect? "#7ab342" : "white" )}' @click="isACorrectToggle()">{{ A }}</div>
+        <div id="F" class="answer" style="background-clip: padding-box;" v-bind:style='{"background-color" : (isFCorrect? "#7ab342" : "white" )}' @click="isFCorrectToggle()">{{ F }}</div>
+        <div id="B" class="answer" style="background-clip: padding-box;" v-bind:style='{"background-color" : (isBCorrect? "#7ab342" : "white" )}' @click="isBCorrectToggle()">{{ B }}</div>
+        <div id="E" class="answer" style="background-clip: padding-box;" v-bind:style='{"background-color" : (isECorrect? "#7ab342" : "white" )}' @click="isECorrectToggle()">{{ E }}</div>
+        <div id="C" class="answer" style="background-clip: padding-box;" v-bind:style='{"background-color" : (isCCorrect? "#7ab342" : "white" )}' @click="isCCorrectToggle()">{{ C }}</div>
+        <div id="D" class="answer" style="background-clip: padding-box;" v-bind:style='{"background-color" : (isDCorrect? "#7ab342" : "white" )}' @click="isDCorrectToggle()">{{ D }}</div>
     </div>
     <caption>Click an answer to mark it as correct!</caption>
     <button @click="openNewQuestion">New Question</button>
@@ -24,7 +23,7 @@
                     <input placeholder="D" v-model="D"/><br/>
                     <input placeholder="E" v-model="E"/><br/>
                     <input placeholder="F" v-model="F"/><br/>
-                    <button @click="newQuestion = false" style="float: right; margin: 10px; border: none; background: none;">✔️</button>
+                    <button @click="newQuestion = false" style="float: right; border: none; background: none;">✔️</button>
                 </div>
             </div>
         </Transition>
@@ -51,12 +50,12 @@ export default class AnswerOptions extends Vue {
 
     newQuestion = false;
     question = "Question";
-    A = "A";
-    B = "B";
-    C = "C";
-    D = "D";
-    E = "E";
-    F = "F";
+    A = "Answer A";
+    B = "Answer B";
+    C = "Answer C";
+    D = "Answer D";
+    E = "Answer E";
+    F = "Answer F";
 
     openNewQuestion(): void{
         
@@ -73,31 +72,23 @@ export default class AnswerOptions extends Vue {
 </script>
 
 <style>
-.root{
-    position: relative;
-}
-
-hr {
-    margin: 10px auto;
-    color: #7ab342;
-    width: 70%;
-}
 caption {
-    margin: 5px auto;
-    width: 100%;
+    justify-content: center;
+    align-self: center;
+    margin: 1em auto;
+    min-width: 100%;
 }
 button {
     border-radius: 2px;
-    padding: 10px 20px;
+    padding: 0.5em;
     font-size: 20px;
 }
 
 input {
-    margin: 10px;
-    padding: 5px;
-    width: 97%;
-    height: 40px;
-    font-size: 20px;
+    margin: 1em;
+    padding: 1em;
+    min-width: 80%;
+    font-size: 15px;
 }
 .modal-container{
     position: absolute;
@@ -105,18 +96,25 @@ input {
     left: 0;
     background-color: rgb(91, 91, 91);
     width: 100%;
-    height: 100%;
+    height: 110%;
 }
 
 .modal {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    min-width: 50%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     background-color: rgba(255, 255, 255, 0.898);
-    border-radius: 5px;
-    width: 75%;
-    height: 90%;
+    border-radius: 3px;
+    max-width: 50vw;
+    min-height:700px;
     justify-content: center;
     align-items: center;
     align-self: center;
-    margin: auto;
 }
 
 .v-enter-active,
@@ -133,64 +131,70 @@ input {
     margin: auto;
     justify-content: center;
     display: grid;
-}
-
-.correct {
-    background-color: green;
+    grid-template-columns: 1fr 1fr;
 }
 
 .answer {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.259);
-    border-radius: 2px;
-    width: 400px;
-    height: 50px;
-    font-size: 20px;
+    padding: 1em;
+    height: 40px;
+    font-size: 40px;
+    user-select: none;
 }
 
 #question {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
     color: white;
     background-color: #31b2d7;
     border-radius: 2px;
-    margin: auto;
-    width: 1000px;
-    height: 100px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-style: solid;
+    border-bottom-color: #7ab342;
+    border-bottom-width: 100%;
 }
 
 #A {
-    grid-column: 1;
-    grid-row: 2;
+    border-style: none solid solid none;
+    border-color: rgba(0, 0, 0, 0.259);
+    border-width: 3px ;
 }
 
 #B {
-    grid-column: 1;
-    grid-row: 3;
+    border-style: solid solid solid none;
+    border-color: rgba(0, 0, 0, 0.259);
+    border-width: 3px ;
 }
 
 #C {
-    grid-column: 1;
-    grid-row: 4;
+    border-style: solid solid none none;
+    border-color: rgba(0, 0, 0, 0.259);
+    border-width: 3px ;
 }
 
 #D {
-    grid-column: 2;
-    grid-row: 4;
+    border-style: solid none none solid;
+    border-color: rgba(0, 0, 0, 0.259);
+    border-width: 3px ;
 }
 
 #E {
-    grid-column: 2;
-    grid-row: 3;
+    border-style: solid none solid solid;
+    border-color: rgba(0, 0, 0, 0.259);
+    border-width: 3px ;
 }
 
 #F {
-    grid-column: 2;
-    grid-row: 2;
+    border-style: none none solid solid;
+    border-color: rgba(0, 0, 0, 0.259);
+    border-width: 3px ;
 }
 </style>

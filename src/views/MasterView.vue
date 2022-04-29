@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h1 id="welcome">Welcome to the Half Truth Game Interface!</h1>
-    <DieRoll/>
+    <h1 id="welcome">Welcome to the Half Truth Interface!</h1>
+    <DieRoll/><br/>
     <AnswerOptions/>
   </div>
 </template>
@@ -17,7 +17,7 @@ import AnswerOptions from '@/components/AnswerOptions.vue';
     AnswerOptions
   },
 })
-export default class HomeView extends Vue {}
+export default class MasterView extends Vue {}
 </script>
 
 <style>
@@ -25,7 +25,7 @@ export default class HomeView extends Vue {}
   color: white; 
   background-color: #d91f28;
   padding: 5px;
-  width: 60%;
+  width: 100%;
   margin: 10px auto;
   align-items: center;
   justify-content: center;

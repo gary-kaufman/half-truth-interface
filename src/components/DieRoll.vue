@@ -21,30 +21,36 @@ export default class DieRoll extends Vue {
             this.rollResult = "1"
             this.rollDescription = "Move 1 space if you get all correct answers this round!"
             document.querySelector("#die")?.classList.remove("special");
+            document.querySelector("#die")?.classList.add("regular");
             }
         if (result == 2) {
             this.rollResult = "2"
             this.rollDescription = "Move 2 space if you get all correct answers this round!"
             document.querySelector("#die")?.classList.remove("special");
+            document.querySelector("#die")?.classList.add("regular");
             }
         if (result == 3) {
             this.rollResult = "3"
             this.rollDescription = "Move 3 space if you get all correct answers this round!"
             document.querySelector("#die")?.classList.remove("special");
+            document.querySelector("#die")?.classList.add("regular");
             }
         if (result == 4) {
             this.rollResult = "4"
             this.rollDescription = "Move 4 space if you get all correct answers this round!"
             document.querySelector("#die")?.classList.remove("special");
+            document.querySelector("#die")?.classList.add("regular");
             }
         if (result == 5) {
             this.rollResult = "+1";
             this.rollDescription = "Bonus Points are DOUBLED! Move 1 space if you get all correct answers this round!"
+            document.querySelector("#die")?.classList.remove("regular");
             document.querySelector("#die")?.classList.add("special");
         }
         if (result == 6) {
             this.rollResult = "¡2!"
             this.rollDescription = "Move 2 space if you get all INCORRECT answers this round!"
+            document.querySelector("#die")?.classList.remove("regular");
             document.querySelector("#die")?.classList.add("special")
         }
         document.querySelector("#die")?.classList.remove("roll");
@@ -86,6 +92,10 @@ h2 {
 
 .special {
     color: #7ab342;
+}
+
+.regular {
+    color: #d91f28;
 }
 
 .roll {
