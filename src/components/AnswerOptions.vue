@@ -23,7 +23,7 @@
                     <input placeholder="D" v-model="D"/><br/>
                     <input placeholder="E" v-model="E"/><br/>
                     <input placeholder="F" v-model="F"/><br/>
-                    <button @click="newQuestion = false" style="float: right; border: none; background: none;">✔️</button>
+                    <button @click="newQuestion = false" style="border: none; background: none;">✔️</button>
                 </div>
             </div>
         </Transition>
@@ -81,11 +81,11 @@ caption {
 button {
     border-radius: 2px;
     padding: 0.5em;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 input {
-    margin: 1em;
+    margin: 3px;
     padding: 1em;
     min-width: 80%;
     font-size: 15px;
@@ -96,22 +96,21 @@ input {
     left: 0;
     background-color: rgb(91, 91, 91);
     width: 100%;
-    height: 110%;
+    height: 100%;
 }
 
 .modal {
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 25%;
     min-width: 50%;
     max-width: 100%;
+    min-height:400px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     background-color: rgba(255, 255, 255, 0.898);
     border-radius: 3px;
-    max-width: 50vw;
-    min-height:700px;
     justify-content: center;
     align-items: center;
     align-self: center;
@@ -139,8 +138,8 @@ input {
     align-items: center;
     justify-content: center;
     padding: 1em;
-    height: 40px;
-    font-size: 40px;
+    height: 30px;
+    font-size: 30px;
     user-select: none;
 }
 
@@ -149,9 +148,9 @@ input {
     align-items: center;
     justify-content: center;
     margin: auto;
-    padding: 10px;
-    width: 100%;
-    height: 100px;
+    padding: 5px;
+    min-width: 100%;
+    min-height: 60px;
     color: white;
     background-color: #31b2d7;
     border-radius: 2px;
