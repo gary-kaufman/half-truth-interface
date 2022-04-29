@@ -1,7 +1,7 @@
 <template>
   <div id="dierollbox">
       <h1 @click="roll" id="die">{{ rollResult }}</h1>
-      <caption id="rollDescription">{{ rollDescription }}</caption>
+      <h2 id="rollDescription">{{ rollDescription }}</h2>
   </div>
 </template>
 
@@ -63,27 +63,29 @@ export default class DieRoll extends Vue {
     text-align: center;
     margin: auto;    
     height: 100px;
-    width: 800px;   
+    width: 100%;   
 }
 
 #die {
+    background-color: white;
     display:block;
     text-align: center;
     margin: auto;
     line-height: 50px;
     height: 50px;
     width: 50px;
-    border: 2px solid black;
+    border: 2px solid rgba(0, 0, 0, 0.259);
     border-radius: 3px;
 }
 
-caption {
+h2 {
     display: block;
     margin-top: 10px;
+    width: 100%;
 }
 
 .special {
-    color: rgb(1, 172, 1);
+    color: #7ab342;
 }
 
 .roll {
