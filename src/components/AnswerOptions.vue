@@ -160,7 +160,7 @@ input {
     background-color: #31b2d7;
     border-radius: 2px;
     margin: auto;
-    width: 630px;
+    width: 1000px;
     height: 100px;
 }
 
